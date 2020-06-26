@@ -1,0 +1,31 @@
+version: "3"
+services:
+  db:
+    image: tobi312/rpi-mariadb
+    restart: always
+    expose:
+      - 3306
+    volumes:
+      - ./.mysql_volume/:/var/lib/mysql
+    env_file:
+      - ./.env.db
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  management:
+    image: management
+    build: module_2_management
+    ports:
+     - 9080:9080
+    depends_on:
+      - db
+  electronic:
+    image: electronic
+    build: module_3_electronic
+    command: python run.py
+    ports:
+      - 5000:5000
+    devices:
+      - "/dev/gpiomem:/dev/gpiomem"

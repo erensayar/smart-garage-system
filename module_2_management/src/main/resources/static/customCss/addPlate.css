@@ -1,0 +1,60 @@
+.custom-left {
+    width: 50%;
+    float: left;
+}
+
+.custom-right {
+    width: 50%;
+    float: right;
+}
+
+.header a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 4px;
+}
+
+.header a.active {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.header {
+    overflow: hidden;
+    background-color: #2C2E30;
+    padding: 10px 5px;
+}
+
+.header-right {
+    float: right;
+}
+
+.header-left {
+    float: left;
+}
+
+.mid {
+    width: 350px;
+    height: 340px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -175px;
+    margin-top: -170px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.image-mid {
+    width: 72px;
+    height: 72px;
+    left: 50%;
+    margin: auto;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<!--===========================Bootsrap CSS===========================-->
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-grid.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-reboot.css}" />
+<!--===========================Custom CSS=============================-->
+<link rel="stylesheet" type="text/css" th:href="@{/customCss/login.css}" />
+<!--==================================================================-->
+
+
+<head>
+    <title>Plate Recognition Login Page</title>
+    <meta charset="utf-8">
+    <meta name="author" content="ErenSayar" />
+    <meta name="theme-color" content="#563d7c">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+
+<body>
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+
+    <div class="mid">
+        <form class="form-signin" th:action="@{/login}" method="POST">
+
+            <div class="image-mid">
+                <img src="/img/lock.svg" alt="" width="72" height="72" />
+            </div>
+
+            <div class="text-center">
+                <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+            </div>
+
+            <label class="sr-only">Admin Name</label>
+            <input type="text" class="form-control" name="username" placeholder="Admin Name" required="" autofocus="">
+
+            <label class="sr-only">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password" required="">
+
+            <button class="btn btn-lg btn-primary btn-block" value="Sign In" type="submit" onclick=goHome()>Login</button>
+
+            <div class="text-center">
+                <p class="mt-5 mb-3 text-muted">Plate Recognition Project</p>
+            </div>
+        </form>
+
+    </div>
+
+    <script>
+        function goHome() {
+            window.location = "/home";
+        }
+    </script>
+
+
+</body>
+
+</html>

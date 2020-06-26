@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<!--===========================Bootsrap CSS===========================-->
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-grid.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-reboot.css}" />
+<!--===========================Custom CSS=============================-->
+<link rel="stylesheet" type="text/css" th:href="@{/customCss/home.css}" />
+<!--==================================================================-->
+
+
+<head>
+    <title>Plate Recognation Management Screen</title>
+    <meta charset="utf-8">
+
+    <style>
+        input[type=submit] {
+            background-color: #5cb85c;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            padding: 4px 8px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--==================================================================-->
+    <header>
+        <div class="header">
+            <div class="header-left">
+                <a class="active" href="/addplate">Add Authorized Plate</a>
+            </div>
+
+            <div class="header-right">
+                <form th:action="@{/logout}" method="POST">
+                    <div class="header-right">
+                        <input type="submit" value="Sign Out" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+    <!--==================================================================-->
+
+    <div>
+        <!--==================================================================-->
+        <div class="custom-left">
+            <div class="container">
+
+                <div>
+                    <div class="side-header">
+                        <p><strong>Recently Added Plates</strong></p>
+                    </div>
+                </div>
+
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Plate</th>
+                                <th scope="col">Last Seen</th>
+                                <th scope="col">Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody th:each="plate : ${plates}">
+                            <tr>
+                                <td th:text="${plate.id}"></td>
+                                <td th:text="${plate.plate}"></td>
+                                <td th:text="${plate.date}"></td>
+                                <td>
+                                    <button id="statistics" th:text="Statistics" type="submit" class="btn btn-sm btn-success" th:value="${plate.plate}" onclick="getPlateRecords(value)">Details
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--==================================================================-->
+        <div class="custom-right">
+            <div class="container">
+
+                <div>
+                    <div class="side-header">
+                        <p><strong>Plate Details</strong></p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="custom-left">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" id="search_box" name="search_box" type="text" placeholder="Search Plate" />
+                            <button class="btn btn-primary" onclick="searchPlateRecords()">Search</button>
+                        </form>
+                    </div>
+
+                    <div class="custom-right">
+                        <p style="text-align:center"><strong>Number Of Records: </strong> <strong th:text="${numberOfRec}"></strong></p>
+                    </div>
+                </div>
+
+                <!--Table-->
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Plate</th>
+                                <th scope="col">Last Seen</th>
+                                <th scope="col">Delete Record</th>
+                            </tr>
+                        </thead>
+                        <tbody th:each="specificPlate : ${specificPlate}">
+                            <tr>
+                                <td th:text="${specificPlate.id}"></td>
+                                <td th:text="${specificPlate.plate}"></td>
+                                <td th:text="${specificPlate.date}"></td>
+                                <td>
+                                    <button id="delete_record" th:text="Delete" type="submit" class="btn btn-sm btn-danger" th:value="${specificPlate.id}" onclick="deletePlate(value)">Delete
+                                        Record
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--Table-->
+
+
+            </div>
+        </div>
+        <!--==================================================================-->
+    </div>
+
+    <!--=============================JQuery==============================-->
+    <script type="text/javascript" th:src="@{./../js/jquery-3.5.1.min.js}"></script>
+    <!--============================Custom JS=============================-->
+    <script type="text/javascript" th:src="@{./../customJs/getPlateRecords.js}"></script>
+    <script type="text/javascript" th:src="@{./../customJs/deletePlate.js}"></script>
+    <script type="text/javascript" th:src="@{./../customJs/searchPlateRecords.js}"></script>
+    <!--==================================================================-->
+</body>
+
+</html>
