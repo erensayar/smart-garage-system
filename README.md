@@ -16,11 +16,11 @@
     ```sh
     git clone https://github.com/erensayar/ComputerEngineeringFinalYearProject-LicensePlateRecognitionProject.git
     ```
-    or you can download from my teammate github repo
+    or you can download from my teammate's github repo
     ```sh
     git clone https://github.com/mrtmrcbr/license_plate_recognition.git
     ```
-    - Otherwise visit [here](https://github.com/erensayar/ComputerEngineeringFinalYearProject-LicensePlateRecognitionProject/archive/master.zip)
+    - Also you can download zip[here](https://github.com/erensayar/ComputerEngineeringFinalYearProject-LicensePlateRecognitionProject/archive/master.zip)
 
 
 ```sh
