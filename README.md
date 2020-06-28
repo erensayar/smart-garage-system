@@ -1,5 +1,7 @@
 # Installation
 
+-Be sure you have JDK and Maven, installed in your system.
+
 - Be sure you have an Python3 and pip, installed in your system.
 
     - further information about [Python](https://www.python.org/downloads/)
