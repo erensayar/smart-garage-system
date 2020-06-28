@@ -14,9 +14,13 @@
 - Clone or download the repository
     - If you have git software in your system you can use this command.
     ```sh
+    git clone https://github.com/erensayar/ComputerEngineeringFinalYearProject-LicensePlateRecognitionProject.git
+    ```
+    or you can download from my teammate github repo
+    ```sh
     git clone https://github.com/mrtmrcbr/license_plate_recognition.git
     ```
-    - Otherwise visit [here](https://github.com/mrtmrcbr/license_plate_recognition) and press clone button and download as zip and extract it.
+    - Otherwise visit [here](https://github.com/erensayar/ComputerEngineeringFinalYearProject-LicensePlateRecognitionProject/archive/master.zip)
 
 
 ```sh
