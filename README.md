@@ -1,70 +1,52 @@
-# Installation
+# Requirements
+- JDK 8+ [here](https://openjdk.org/install/)
+- Maven [here](https://maven.apache.org/download.cgi)
+- Python3 [here](https://www.python.org/downloads/)
+- Pip [here](https://pip.pypa.io/en/stable/cli/pip_install/)
+- Docker Engine [here](https://docs.docker.com/desktop/)
+- Docker Compose [here](https://docs.docker.com/compose/install/)
 
-- Be sure you have JDK and Maven, installed in your system.
 
-- Be sure you have an Python3 and pip, installed in your system.
+# Run
 
-    - further information about [Python](https://www.python.org/downloads/)
+- Download tesseract-ocr binaries. Visit [here](https://tesseract-ocr.github.io/tessdoc/4.0-with-LSTM.html#400-alpha-for-windows) and follow instruction for your system.
 
-- if you dont have Docker installed system please follow [this](https://docs.docker.com/desktop/) instruction for your system
-
-- also you must install docker-compose extension. you can follow [this](https://docs.docker.com/compose/install/) page for installing docker-compose
-
-# Usage
-
-### Running Docker containers
-- Clone or download the repository
-    - If you have git software in your system you can use this command.
-    ```sh
-    git clone https://github.com/erensayar/ComputerEngineeringFinalYearProject-LicensePlateRecognitionProject.git
+- **Create Python Environment**
     ```
-    or you can download from my teammate's github repo
-    ```sh
-    git clone https://github.com/mrtmrcbr/license_plate_recognition.git
+    pip install virtualenv
+
+    cd license_plate_recognition/module_1_vision
+
+    virtualenv venv
     ```
-    - Also you can download zip[here](https://github.com/erensayar/ComputerEngineeringFinalYearProject-LicensePlateRecognitionProject/archive/master.zip)
+    - **for Gnu/Linux Systems**
+        ```
+        source venv/bin/activate
+        ```
+    
+    - **for Windows systems**
+        ```
+        \venv\Scripts\activate.bat
+        ```
 
+- **Start** 
 
-```sh
-cd license_plate_recognition
-```
+    ```
+    pip install -r requirements.txt
 
-There are some dependecies for raspberry pi. if you want to run this project in pi, you should run this line
-- **Build and run into Raspberry pi**
-```sh
-docker-compose -f docker-compose-pi.yml up --build
-```
+    python run.py
+    ```
 
-- **Otherwise you should run**
-```sh
-docker-compose up --build
-```
+## If You Want Run In The Container 
 
-### Running vision module-1
+1. There are some dependecies for raspberry pi. If you want to run this project in pi, you should run this line
 
-- Download tesseract-ocr binaries visit [here](https://tesseract-ocr.github.io/tessdoc/4.0-with-LSTM.html#400-alpha-for-windows) and follow instruction for your system
+    ```
+    docker-compose -f docker-compose-pi.yml up --build
+    ```
 
-- Create Python environment
-```sh
-pip install virtualenv
-
-cd license_plate_recognition/module_1_vision
-
-virtualenv venv
-```
-- **for Gnu/linux systems**
-```sh
-source venv/bin/activate
-```
-
-- **for Windows systems**
-```sh
-\venv\Scripts\activate.bat
-```
-
-- After activating environment install Python dependecies and run web server
-```sh
-pip install -r requirements.txt
-
-python run.py
-```
+* Otherwise you should run this line
+    
+    ```
+    docker-compose up --build
+    ```
